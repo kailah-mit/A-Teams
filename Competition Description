@@ -1,0 +1,53 @@
+Description
+
+Electroencephalography (EEG) is a method used to measure electrical activity in the brain, and is often used in the diagnosis of a number of brain disorders such as epilepsy and sleep disorders. It also provides for cheaper and faster care than similar brain-measuring technologies such as fMRI, PET, and MEG. An ability to better understand EEG data and how it relates to brain function directly correlates to our ability to diagnose brain disorders and understand the inner workings of the brain.
+For this competition, Draper is tasking participants with identifying which EEG signal corresponds to which subject.
+Evaluation
+
+Submissions for this competition will consist of a single file, with each entry in the Test dataset corresponding to a line in the file. The prediction for the first test case should be on the first line of the file and so on.
+The score for this competition will simply be the number of correct predictions divided by the number of test cases.
+Submission File Format
+
+You should submit a csv file with your predictions. Your submission will show an error if you have extra columns or rows.
+
+The file should have exactly 2 columns:
+dataset_name  (DS1, DS2, DS3, ...)
+category  (door_T, door_NT, chair_T, ...)
+dataset_name,category
+ DS1,door_T
+ DS2,container_NT
+ DS3,poster_NT
+ ...
+Prizes - TBD see recruitment options page
+
+Main Competition
+
+Combined leaderboard of research/non-research teams.
+1st place - $25,000
+2nd place - $10,000
+3rd place - $5,000
+Adversarial Competitions
+
+The top finishing team in each of the two adversarial competitions.
+1st place - $10,000 
+Research Track
+
+The top finishing team participating in the research track.
+1st place - $10,000
+About
+
+
+
+Timeline
+
+
+
+
+Data Description
+
+This data set comes from a study done by the Army Research Labratory (ARL) in which subjects were shown a series of images in rapid succession (roughly 5 images per second). There are five main categories of images: chairs, containers, doors, posters, and stairs. Some images may contain more than one category of image or none at all, the latter of which is used as a distractor. Participants watched the series of images and focused on one of the 5 categories for a 10 minute period, clicking whenever they saw one of the target images.
+The study was performed with a BioSemi 256 (+8) EEG channel system with 4 eye and 2 mastoid channels recorded, with a sampling rate of 2048 Hz. The raw EEG data has been processed with the PREP pipeline. The PREP pipeline is a standardized pipeline for processing EEG data that identifies bad channels and interpolates them.
+The task for this competition is to determine, given a one second snapshot of EEG data, which of the image categories the subject was shown and whether or not that image was the target image for the session it was taken from. Although in the study subjects were shown target images containing objects from multiple categories, these instances were filetered out and are not included in the competition dataset.
+The data is spread throughout 11 HDF5 files, with their names indicating the data contained within. For example, chair_T.h5 contains examples of when the subject was shown an image of a chair and the chair was the target image at that time, while door_NT.h5 contains examples of when the subject was shown an image of a door and it was not the target image. The T and NT indicate that the category was the target category or was not the target category respectively.
+Within each file is all of the examples for that category, with each example being contained in a single Dataset. Each Dataset contains a 1000x262 matrix. Each row represents a single reading of the EEG channels and each column represents a channel. Each dataset represents a one second window around the image in question, with that image being shown to the user a quarter of a second (250 rows) into the window.
+The goal of this competition is to determine which of the 10 categories a given one second reading is from, with these readings contained in the file test.h5.

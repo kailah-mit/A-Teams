@@ -32,9 +32,6 @@ The top finishing team in each of the two adversarial competitions.
 1st place - $10,000 
 Research Track
 
-The top finishing team participating in the research track.
-1st place - $10,000
-
 Data Description
 
 This data set comes from a study done by the Army Research Labratory (ARL) in which subjects were shown a series of images in rapid succession (roughly 5 images per second). There are five main categories of images: chairs, containers, doors, posters, and stairs. Some images may contain more than one category of image or none at all, the latter of which is used as a distractor. Participants watched the series of images and focused on one of the 5 categories for a 10 minute period, clicking whenever they saw one of the target images.

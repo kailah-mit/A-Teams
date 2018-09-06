@@ -1,0 +1,60 @@
+This data was calculated using session 1 from the level 2 baseline dataset.
+
+In all, there are 27 Baseline sessions and 51 Expertise sessions, for a total of 78 sessions.
+How many pics are shown for 1 person? Estimate for all?
+
+An event represents an image being shown if it begins with 13. This occurs 17781 times. Extrapolating out, this gives us a total of 1.4 million images (17781 * 78).
+A side note: We currently (as of 1/11) believe that images are shown every 188 milliseconds. At this rate, showing 17781 images would take 56 minutes, which is roughly inline with the 60 minutes that is stated by the study.
+How many target images and non-targets are shown for 1 person and all?
+
+A target image is shown if the event code begins with 131. This occurs in roughly 6.5% (1277 / 19433) of all events, but more notably in 7.1% of all images shown to the subject (1277 / 17781). Therefore, of the 17781 images shown, 1277 were the target image and 16504 were a non-target image. Using that percentage, we have about 100000 target images and 1.3 million non target images.
+How many images were selected (clicked on) for 1 person and everyone? What % were correct?
+
+728 targets correct, 549 targets wrong, 57% correct
+Estimate over 78 sessions: 56784 correct, 42822 wrong
+When participants incorrectly flag a picture were they generally too slow? => What percent of wrong clicks are for an event following a non-selected target image?
+
+Yes they are too slow, but it's difficult to tell where the cutoff is for too slow or not. The button clicks are usually registered a few images after the target image was shown, but the number of images varies from roughly 0 to 5.
+How many unique event codes are actually used? What are they?
+
+For a given session, roughly 25 different event codes are used, with about 5 referring to the images being shown and another 5 referring to user input. Others are more administrative, such as starting and ending the session.
+The most frequent code used is 13210, which is that the subject correctly classified an image that was not the target. This code is used 82% (16004 / 19433) of the time. If we include the related codes such as 13110 (correctly classifying the target), 13120 (incorrectly classifying the target), and 13230 (indeterminate target classification), this set of codes makes up 92% (17781  / 19433) of all codes.
+Table taken from the Data Summary:
+
+Can we figure out what category of picture was shown during each event?
+
+This information is in the event code itself. Page 22 of the Data Summary contains a table (which is also displayed above) that can be used to determine which picture was shown and the result of the event.
+Example: 13110
+1: Scenario
+3: Present Image
+1: Target
+1: Correct Classification
+0: Last digit not used in this case
+Summary: The image presented was of the target and was correctly classified by the subject
+This, however, does not tell us what the image was of if it was not of the target image. Based on reading the reference table, it does not seem like that information is stored in the event code. Since we are also given the image_id, we will have to see if this information can be pulled from somewhere else using that.
+Where are the descriptions / demographic information about the participants?
+
+Information given about participants:
+Gender
+Birth Year
+Age
+Handedness
+
+Some random stats:
+Mean age: 35.5
+Gender distribution: Male 12, Female 19
+Handedness distribution: R 25, L 4, A 2
+What processing has been done to the data?
+
+To quote from the study description provided to us, "This study is an ESS Standard Data Level 2 container. This means that raw EEG data has been processed with PREP pipeline, i.e. re-referenced with a robust average reference."
+The PREP pipeline is a standardized pipeline for processing EEG data that identifies bad channels and interpolates them.
+Full steps of the PREP pipeline (from their website):
+Handle boundary events prior to processing
+Remove trend (high pass) temporarily to properly compute thresholds
+Remove line noise without committing to a filtering strategy
+Robustly reference the signal relative to an estimate of the “true” average reference
+Detect and interpolate bad channels relative to this reference
+Produce reports if desired
+Post process if desired
+
+Notice: This email and any attachments may contain proprietary (Draper non-public) and/or export-controlled information of Draper. If you are not the intended recipient of this email, please immediately notify the sender by replying to this email and immediately destroy all copies of this email.
